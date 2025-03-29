@@ -104,3 +104,32 @@ footer {
 .reply-form button:hover {
   background: #005fa3;
 }
+
+.new-post-form input,
+.new-post-form textarea {
+  width: 100%;
+  max-width: 600px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.new-post-form textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.new-post-form button {
+  padding: 0.5rem 1rem;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.new-post-form button:hover {
+  background-color: #005fa3;
+}
