@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neuen Beitrag erstellen</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Mein Forum</h1>
+    <nav>
+      <a href="index.html">Zurück zur Übersicht</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>➕ Neuer Beitrag</h2>
+
+    <form id="newPostForm" class="new-post-form">
+      <label for="postTitle">Titel:</label><br />
+      <input type="text" id="postTitle" name="title" required /><br /><br />
+
+      <label for="postContent">Inhalt:</label><br />
+      <textarea id="postContent" name="content" required></textarea><br /><br />
+
+      <button type="submit">Beitrag erstellen</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mein Forum</p>
+  </footer>
+
+</body>
+</html>
