@@ -6,7 +6,6 @@
   <title>Thread ansehen</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<script src="script.js"></script>
 <body>
 
   <header>
@@ -18,7 +17,7 @@
 
   <main>
     <!-- 🧵 Hauptbeitrag -->
-    <article class="thread-main post">
+    <article class="thread-main post" id="mainPost">
       <h2>Frage zum Update</h2>
       <p>
         Ich habe gesehen, dass es ein neues Design gibt. Wo kann ich das aktivieren?
@@ -27,7 +26,7 @@
     </article>
 
     <!-- 💬 Antworten -->
-    <section class="replies">
+    <section class="replies" id="repliesSection">
       <h3>Antworten</h3>
 
       <article class="reply post">
@@ -39,22 +38,25 @@
         <p>Bei mir wurde es automatisch aktiviert. Du musst evtl. den Cache löschen.</p>
         <small>Antwort von <strong>Jonas</strong> am 29. März 2025</small>
       </article>
-      <!-- 📝 Antwortformular -->
-<section class="reply-form">
-  <h3>Antwort schreiben</h3>
-  <form id="replyForm">
-    <textarea id="replyText" placeholder="Deine Antwort..." required></textarea>
-    <br />
-    <button type="submit">Antwort posten</button>
-  </form>
-</section>
-
     </section>
+
+    <!-- 📝 Antwortformular -->
+    <section class="reply-form">
+      <h3>Antwort schreiben</h3>
+      <form id="replyForm">
+        <textarea id="replyText" placeholder="Deine Antwort..." required></textarea>
+        <br />
+        <button type="submit">Antwort posten</button>
+      </form>
+    </section>
+
   </main>
 
   <footer>
     <p>&copy; 2025 Mein Forum</p>
   </footer>
 
+  <!-- JS am Ende laden -->
+  <script src="script.js"></script>
 </body>
 </html>
