@@ -12,40 +12,21 @@
     <h1>Mein Forum</h1>
     <nav>
       <a href="index.html">Startseite</a>
+      <a href="new-post.html">➕ Neuer Beitrag</a> <!-- Für später -->
     </nav>
   </header>
 
   <main>
     <h2>Beiträge</h2>
 
-    <!-- 📌 Angepinnte Beiträge -->
-    <section class="pinned-posts">
-      <article class="post pinned">
-        <h3>📌 Forum-Regeln</h3>
-        <p>Bitte vor dem Posten lesen. Kein Spam, höflich bleiben!</p>
-        <a href="thread.html?id=1">Zum Beitrag</a>
-      </article>
-
-      <article class="post pinned">
-        <h3>📌 Ankündigung: Neue Funktionen</h3>
-        <p>Wir haben einige neue Features ins Forum eingebaut.</p>
-        <a href="thread.html?id=2">Zum Beitrag</a>
-      </article>
+    <!-- 📌 Bereich für angepinnte Beiträge -->
+    <section class="pinned-posts" id="pinnedPosts">
+      <!-- Wird später dynamisch befüllt -->
     </section>
 
-    <!-- 📝 Normale Beiträge -->
-    <section class="post-list">
-      <article class="post">
-        <h3>Frage zum Update</h3>
-        <p>Wie kann ich das neue Design aktivieren?</p>
-        <a href="thread.html?id=3">Zum Beitrag</a>
-      </article>
-
-      <article class="post">
-        <h3>Dark Mode Vorschlag</h3>
-        <p>Könnte man einen Dunkelmodus hinzufügen?</p>
-        <a href="thread.html?id=4">Zum Beitrag</a>
-      </article>
+    <!-- 📝 Bereich für normale Beiträge -->
+    <section class="post-list" id="postList">
+      <!-- Wird später dynamisch befüllt -->
     </section>
   </main>
 
@@ -53,5 +34,7 @@
     <p>&copy; 2025 Mein Forum</p>
   </footer>
 
+  <!-- Script vorbereiten -->
+  <script src="script.js"></script>
 </body>
 </html>
