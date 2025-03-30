@@ -4,13 +4,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault()
-    const username = document.getElementById("regName").value.trim()
 
-    if (!username) return alert("Bitte gib einen Benutzernamen ein.")
+    const username = document.getElementById("regName").value.trim()
+    const password = document.getElementById("regPassword").value.trim()
+
+    if (!username || !password) return alert("Bitte Benutzername und Passwort angeben.")
 
     try {
       await db.collection("pendingUsers").add({
         username: username,
+        password: password, // 🔐 Achtung: aktuell im Klartext
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
       })
 
@@ -22,3 +25,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 })
+
