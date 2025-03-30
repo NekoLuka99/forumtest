@@ -1,33 +1,60 @@
 // admin.js
 
-document.addEventListener("DOMContentLoaded", () => {
-  loadPendingUsers()
+document.addEventListener("DOMContentLoaded", async () => {
+  const username = localStorage.getItem("username")
 
-  const addUserForm = document.getElementById("addUserForm")
-  const addUserMessage = document.getElementById("addUserMessage")
+  if (!username) {
+    alert("Du musst eingeloggt sein.")
+    window.location.href = "index.html"
+    return
+  }
 
-  addUserForm.addEventListener("submit", async (e) => {
-    e.preventDefault()
-    const username = document.getElementById("newUsername").value.trim()
-    const password = document.getElementById("newPassword").value.trim()
+  try {
+    const snapshot = await db.collection("users")
+      .where("username", "==", username)
+      .where("isAdmin", "==", true)
+      .limit(1)
+      .get()
 
-    if (!username || !password) return alert("Bitte alle Felder ausfüllen.")
-
-    try {
-      await db.collection("users").add({
-        username,
-        password,
-        approved: true,
-        createdAt: firebase.firestore.FieldValue.serverTimestamp()
-      })
-
-      addUserMessage.innerHTML = "<p style='color:green;'>Benutzer erfolgreich hinzugefügt.</p>"
-      addUserForm.reset()
-    } catch (err) {
-      console.error("Fehler beim Hinzufügen:", err)
-      addUserMessage.innerHTML = "<p style='color:red;'>Fehler beim Hinzufügen.</p>"
+    if (snapshot.empty) {
+      alert("Kein Zugriff – nur für Admins.")
+      window.location.href = "index.html"
+      return
     }
-  })
+
+    // Zugriff erlaubt
+    loadPendingUsers()
+
+    const addUserForm = document.getElementById("addUserForm")
+    const addUserMessage = document.getElementById("addUserMessage")
+
+    addUserForm.addEventListener("submit", async (e) => {
+      e.preventDefault()
+      const username = document.getElementById("newUsername").value.trim()
+      const password = document.getElementById("newPassword").value.trim()
+
+      if (!username || !password) return alert("Bitte alle Felder ausfüllen.")
+
+      try {
+        await db.collection("users").add({
+          username,
+          password,
+          approved: true,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        })
+
+        addUserMessage.innerHTML = "<p style='color:green;'>Benutzer erfolgreich hinzugefügt.</p>"
+        addUserForm.reset()
+      } catch (err) {
+        console.error("Fehler beim Hinzufügen:", err)
+        addUserMessage.innerHTML = "<p style='color:red;'>Fehler beim Hinzufügen.</p>"
+      }
+    })
+  } catch (err) {
+    console.error("Fehler beim Admin-Check:", err)
+    alert("Fehler beim Admin-Zugriff.")
+    window.location.href = "index.html"
+  }
 })
 
 async function loadPendingUsers() {
