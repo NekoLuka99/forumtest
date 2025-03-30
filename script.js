@@ -41,6 +41,8 @@ function updateUI() {
   const userBox = document.createElement("div")
   userBox.id = "userInfo"
   userBox.style.marginLeft = "1rem"
+  checkAdminStatus()
+
 
   if (user.name) {
     userBox.innerHTML = `
@@ -114,3 +116,27 @@ document.addEventListener("DOMContentLoaded", () => {
   loadPosts()
   updateUI()
 })
+
+async function checkAdminStatus() {
+  const username = user.name
+  if (!username) return
+
+  try {
+    const snapshot = await db.collection("users")
+      .where("username", "==", username)
+      .where("isAdmin", "==", true)
+      .limit(1)
+      .get()
+
+    if (!snapshot.empty) {
+      const nav = document.querySelector("nav")
+      const adminLink = document.createElement("a")
+      adminLink.href = "admin.html"
+      adminLink.textContent = "⚙️ Admin Panel"
+      adminLink.style.marginLeft = "1rem"
+      nav.appendChild(adminLink)
+    }
+  } catch (err) {
+    console.error("Admin-Check fehlgeschlagen:", err)
+  }
+}
