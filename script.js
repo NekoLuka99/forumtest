@@ -1,5 +1,8 @@
 // 🔐 Benutzerobjekt für Login/Logout
-const user = { name: null }
+const user = {
+  name: localStorage.getItem("username") ?? null
+}
+
 
 // 🔄 Beiträge aus Firestore laden und anzeigen
 async function loadPosts() {
@@ -41,7 +44,6 @@ function updateUI() {
   const userBox = document.createElement("div")
   userBox.id = "userInfo"
   userBox.style.marginLeft = "1rem"
-  checkAdminStatus()
 
 
   if (user.name) {
@@ -49,6 +51,7 @@ function updateUI() {
       Angemeldet als <strong>${user.name}</strong>
       <button onclick="logout()">Logout</button>
     `
+    checkAdminStatus()
   } else {
     userBox.innerHTML = `
   <input id="loginName" placeholder="Benutzername" />
@@ -66,11 +69,13 @@ function updateUI() {
 // 🔐 Login und Logout
 function login(username) {
   user.name = username
+  localStorage.setItem("username", username)
   updateUI()
 }
 
 function logout() {
   user.name = null
+  localStorage.removeItem("username")
   updateUI()
 }
 
