@@ -49,9 +49,11 @@ function updateUI() {
     `
   } else {
     userBox.innerHTML = `
-      <input id="loginName" placeholder="Benutzername" />
-      <button onclick="handleLogin()">Login</button>
-    `
+  <input id="loginName" placeholder="Benutzername" />
+  <button onclick="handleLogin()">Login</button>
+  <a href="register.html" style="margin-left: 1rem;">Registrieren</a>
+`
+
   }
 
   nav.appendChild(userBox)
