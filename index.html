@@ -35,6 +35,24 @@
   </footer>
 
   <!-- Script vorbereiten -->
+  // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBWsujKtDLu2tIEVwDkD7IkLra8OIvbMRY",
+  authDomain: "forumtest-5aa98.firebaseapp.com",
+  databaseURL: "https://forumtest-5aa98-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "forumtest-5aa98",
+  storageBucket: "forumtest-5aa98.firebasestorage.app",
+  messagingSenderId: "454200321554",
+  appId: "1:454200321554:web:c5f63981d70e7bec4f5acb"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
   <script src="script.js"></script>
 </body>
 </html>
