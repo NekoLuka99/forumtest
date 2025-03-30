@@ -47,21 +47,19 @@ function updateUI() {
 
 
   if (user.name) {
-    userBox.innerHTML = `
-      Angemeldet als <strong>${user.name}</strong>
-      <button onclick="logout()">Logout</button>
-    `
-    checkAdminStatus()
-  } else {
-    userBox.innerHTML = `
-  <input id="loginName" placeholder="Benutzername" />
-  <input id="loginPassword" type="password" placeholder="Passwort" style="margin-left: 0.5rem;" />
-  <button onclick="handleLogin()">Login</button>
-  <a href="register.html" style="margin-left: 1rem;">Registrieren</a>
-`
-
-
-  }
+  userBox.innerHTML = `
+    Angemeldet als <strong>${user.name}</strong>
+    <button onclick="logout()">Logout</button>
+  `
+  checkAdminStatus() // ✅ hier richtig
+} else {
+  userBox.innerHTML = `
+    <input id="loginName" placeholder="Benutzername" />
+    <input id="loginPassword" type="password" placeholder="Passwort" style="margin-left: 0.5rem;" />
+    <button onclick="handleLogin()">Login</button>
+    <a href="register.html" style="margin-left: 1rem;">Registrieren</a>
+  `
+}
 
   nav.appendChild(userBox)
 }
