@@ -17,17 +17,31 @@
 
   <main>
 
-    <!-- 📝 Antwortformular -->
-    <section class="reply-form">
-      <h3>Antwort schreiben</h3>
-      <form id="replyForm">
-        <textarea id="replyText" placeholder="Deine Antwort..." required></textarea>
-        <br />
-        <button type="submit">Antwort posten</button>
-      </form>
-    </section>
+  <!-- 🧵 Hauptbeitrag – kann später dynamisch gefüllt werden -->
+  <article class="thread-main post" id="mainPost">
+    <h2>Beitragstitel</h2>
+    <p>Beitragsinhalt...</p>
+    <small>von <strong>Autor</strong> am Datum</small>
+  </article>
 
-  </main>
+  <!-- 💬 Antworten -->
+  <section class="replies" id="repliesSection">
+    <h3>Antworten</h3>
+    <!-- Antworten werden hier per JS eingefügt -->
+  </section>
+
+  <!-- 📝 Antwortformular -->
+  <section class="reply-form">
+    <h3>Antwort schreiben</h3>
+    <form id="replyForm">
+      <textarea id="replyText" placeholder="Deine Antwort..." required></textarea>
+      <br />
+      <button type="submit">Antwort posten</button>
+    </form>
+  </section>
+
+</main>
+
 
   <footer>
     <p>&copy; 2025 Mein Forum</p>
