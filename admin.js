@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     const snapshot = await db.collection("users")
       .where("username", "==", username)
-      .where("Admin", "==", true)
+      .where("isAdmin", "==", true)
       .limit(1)
       .get()
 
