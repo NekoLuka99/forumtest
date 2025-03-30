@@ -35,24 +35,29 @@
   </footer>
 
   <!-- Script vorbereiten -->
-  // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+  <!-- Firebase SDKs einbinden -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyBWsujKtDLu2tIEVwDkD7IkLra8OIvbMRY",
-  authDomain: "forumtest-5aa98.firebaseapp.com",
-  databaseURL: "https://forumtest-5aa98-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "forumtest-5aa98",
-  storageBucket: "forumtest-5aa98.firebasestorage.app",
-  messagingSenderId: "454200321554",
-  appId: "1:454200321554:web:c5f63981d70e7bec4f5acb"
-};
+<script>
+  // Konfiguration von deinem Projekt
+  const firebaseConfig = {
+    apiKey: "AIzaSyBWsujKtDLu2tIEVwDkD7IkLra8OIvbMRY",
+    authDomain: "forumtest-5aa98.firebaseapp.com",
+    databaseURL: "https://forumtest-5aa98-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "forumtest-5aa98",
+    storageBucket: "forumtest-5aa98.firebasestorage.app",
+    messagingSenderId: "454200321554",
+    appId: "1:454200321554:web:c5f63981d70e7bec4f5acb"
+  };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-  <script src="script.js"></script>
+  // Firebase initialisieren
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
+
+<!-- Dein Script danach -->
+<script src="script.js"></script>
+
 </body>
 </html>
