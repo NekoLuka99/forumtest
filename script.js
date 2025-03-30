@@ -50,9 +50,11 @@ function updateUI() {
   } else {
     userBox.innerHTML = `
   <input id="loginName" placeholder="Benutzername" />
+  <input id="loginPassword" type="password" placeholder="Passwort" style="margin-left: 0.5rem;" />
   <button onclick="handleLogin()">Login</button>
   <a href="register.html" style="margin-left: 1rem;">Registrieren</a>
 `
+
 
   }
 
