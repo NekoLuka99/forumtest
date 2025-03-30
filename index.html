@@ -36,25 +36,24 @@
 
   <!-- Script vorbereiten -->
   <!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
-
+<!-- Richtige compat-Versionen für Browser ohne Build-Tool -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 
 <script>
-  // Konfiguration von deinem Projekt
   const firebaseConfig = {
     apiKey: "AIzaSyBWsujKtDLu2tIEVwDkD7IkLra8OIvbMRY",
     authDomain: "forumtest-5aa98.firebaseapp.com",
-    projectId: "forumtest-5aa98"
+    projectId: "forumtest-5aa98",
   };
 
-  // Firebase starten
   firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
 </script>
 
-<!-- Dein Script danach -->
+<!-- Danach dein Haupt-JS -->
 <script src="script.js"></script>
+
 
 </body>
 </html>
