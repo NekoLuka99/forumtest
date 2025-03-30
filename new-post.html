@@ -16,18 +16,19 @@
   </header>
 
   <main>
-    <h2>➕ Neuer Beitrag</h2>
+  <h2>➕ Neuer Beitrag</h2>
 
-    <form id="newPostForm" class="new-post-form">
-      <label for="postTitle">Titel:</label><br />
-      <input type="text" id="postTitle" name="title" required /><br /><br />
+  <form id="newPostForm" class="new-post-form">
+    <label for="postTitle">Titel:</label><br />
+    <input type="text" id="postTitle" required /><br /><br />
 
-      <label for="postContent">Inhalt:</label><br />
-      <textarea id="postContent" name="content" required></textarea><br /><br />
+    <label for="postContent">Inhalt:</label><br />
+    <textarea id="postContent" required></textarea><br /><br />
 
-      <button type="submit">Beitrag erstellen</button>
-    </form>
-  </main>
+    <button type="submit">Beitrag erstellen</button>
+  </form>
+</main>
+
 
   <footer>
     <p>&copy; 2025 Mein Forum</p>
@@ -35,3 +36,21 @@
 
 </body>
 </html>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "DEIN_API_KEY",
+    authDomain: "forumtest-5aa98.firebaseapp.com",
+    projectId: "forumtest-5aa98"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
+
+<!-- Optional: Login -->
+<script src="script.js"></script>
+
+<!-- Neues Beitragsscript -->
+<script src="new-post.js"></script>
+
