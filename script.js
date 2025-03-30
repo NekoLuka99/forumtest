@@ -100,13 +100,10 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 // Initialisierung (falls noch nicht global in HTML passiert)
-const firebaseConfig = {
-  apiKey: "AIzaSyBWsujKtDLu2tIEVwDkD7IkLra8OIvbMRY",
-  authDomain: "forumtest-5aa98.firebaseapp.com",
-  projectId: "forumtest-5aa98",
-};
-firebase.initializeApp(firebaseConfig)
-const db = firebase.firestore()
+// Firestore nutzen – db ist bereits global definiert
+db.collection("posts").get().then(snapshot => {
+  // Beiträge anzeigen …
+})
 
 // 🔄 Beiträge aus Firestore laden
 async function loadPosts() {
