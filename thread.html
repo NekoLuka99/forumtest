@@ -47,7 +47,26 @@
     <p>&copy; 2025 Mein Forum</p>
   </footer>
 
-  <!-- JS am Ende laden -->
-  <script src="script.js"></script>
+  <!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+<!-- Firebase init -->
+<script>
+  const firebaseConfig = {
+    apiKey: "DEIN_API_KEY",
+    authDomain: "forumtest-5aa98.firebaseapp.com",
+    projectId: "forumtest-5aa98"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
+
+<!-- Gemeinsame Funktionen (Login etc.) -->
+<script src="script.js"></script>
+
+<!-- Thread-spezifisches Verhalten -->
+<script src="thread.js"></script>
+
 </body>
 </html>
