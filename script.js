@@ -98,3 +98,47 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPosts()
   updateUI()
 })
+
+// Initialisierung (falls noch nicht global in HTML passiert)
+const firebaseConfig = {
+  apiKey: "AIzaSyBWsujKtDLu2tIEVwDkD7IkLra8OIvbMRY",
+  authDomain: "forumtest-5aa98.firebaseapp.com",
+  projectId: "forumtest-5aa98",
+};
+firebase.initializeApp(firebaseConfig)
+const db = firebase.firestore()
+
+// 🔄 Beiträge aus Firestore laden
+async function loadPosts() {
+  const pinnedContainer = document.getElementById("pinnedPosts")
+  const postListContainer = document.getElementById("postList")
+
+  pinnedContainer.innerHTML = ""
+  postListContainer.innerHTML = ""
+
+  try {
+    const snapshot = await db.collection("posts").orderBy("createdAt", "desc").get()
+    snapshot.forEach(doc => {
+      const post = doc.data()
+      const html = `
+        <article class="post ${post.pinned ? 'pinned' : ''}">
+          <h3>${post.pinned ? '📌 ' : ''}${post.title}</h3>
+          <p>${post.content}</p>
+          <a href="thread.html?id=${doc.id}">Zum Beitrag</a>
+        </article>
+      `
+      if (post.pinned) {
+        pinnedContainer.innerHTML += html
+      } else {
+        postListContainer.innerHTML += html
+      }
+    })
+  } catch (error) {
+    console.error("Fehler beim Laden der Beiträge:", error)
+  }
+}
+
+// 🔁 Beim Laden der Seite
+document.addEventListener("DOMContentLoaded", () => {
+  loadPosts()
+})
