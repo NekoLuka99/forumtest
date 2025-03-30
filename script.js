@@ -105,7 +105,7 @@ db.collection("posts").get().then(snapshot => {
   // Beiträge anzeigen …
 })
 
-// 🔄 Beiträge aus Firestore laden
+// 🔄 Beiträge aus Firestore laden und anzeigen
 async function loadPosts() {
   const pinnedContainer = document.getElementById("pinnedPosts")
   const postListContainer = document.getElementById("postList")
@@ -115,6 +115,7 @@ async function loadPosts() {
 
   try {
     const snapshot = await db.collection("posts").orderBy("createdAt", "desc").get()
+
     snapshot.forEach(doc => {
       const post = doc.data()
       const html = `
@@ -124,6 +125,7 @@ async function loadPosts() {
           <a href="thread.html?id=${doc.id}">Zum Beitrag</a>
         </article>
       `
+
       if (post.pinned) {
         pinnedContainer.innerHTML += html
       } else {
@@ -135,7 +137,8 @@ async function loadPosts() {
   }
 }
 
-// 🔁 Beim Laden der Seite
+// Beim Laden der Seite starten
 document.addEventListener("DOMContentLoaded", () => {
   loadPosts()
 })
+
